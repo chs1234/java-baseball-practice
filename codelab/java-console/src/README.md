@@ -1,0 +1,23 @@
+- 구현목록
+  - 역할분담
+    - 도메인(모델)
+      - 유저(사용자): inputNumbers(3자리 숫자를 입력받는 변수)를 멤버로 가짐
+      - 컴퓨터: ballCnt, strikeCnt, randomNumbers(랜덤문자를 받는 변수)를 멤버로 가짐
+    - 유틸:
+      - 랜덤문자생성 클래스
+      - 문자열 <-> 정수로 혹은 리스트로 변환하는 기능을 포함하는 클래스 
+    - 서비스
+      - 연산(컴퓨터 <-> 사용자 간 숫자 비교)
+    - View
+      - 출력 from 유저(InputView)
+        - printInputMessage(): 게임시작 메시지 출력
+        - printRetryMessage(): 재시작 메시지 출력
+      - 출력 from 컴퓨터(ResultView): 
+        - printGameCountMessage(): 볼, 스트라이크 카운트를 파라미터로 받아 "{ballCnt}볼", "{stringCnt}스트라이크", "낫싱" 출력
+        - printAllMatchMessage(): 정답을 맞췄을 때 "게임 종료" 메시지 출력
+
+- 유효성 검사
+  - 숫자조건
+    - 1 ~ 9의 세 자리 자연수(0은 포함하지 않는다.)
+    - 각 자리의 수는 중복될 수 없다.
+    - 숫자가 아니면 에러를 뱉고 프로그램을 종료한다.
