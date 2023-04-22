@@ -23,14 +23,15 @@ public class GameService {
     private final NumberFormatParser numberFormatParser;
 
     public GameService() {
-        scanner = new Scanner(System.in);
-        validator = new Validator();
-        numberFormatParser = new NumberFormatParser();
+        this.scanner = new Scanner(System.in);
+        this.validator = new Validator();
+        this.numberFormatParser = new NumberFormatParser();
 
-        user = new User();
-        computer = new Computer();
-        inputView = new InputView();
-        resultView = new ResultView();
+        this.user = new User();
+        this.computer = new Computer();
+
+        this.inputView = new InputView();
+        this.resultView = new ResultView();
     }
 
     public void run() {
@@ -49,11 +50,11 @@ public class GameService {
         int strikeCnt = 0;
         while (strikeCnt != 3) {
             computer.clearCnt();
-            user.createNumbers(parsedUserInputValue());
+            user.createNumbers(getUserInputValue());
 
             compareNumbersBetweenUserAndComputer();
 
-            resultView.printCalculateMessage(computer.getBallCnt(), computer.getStrikeCnt());
+            resultView.printCompareResultMessage(computer.getBallCnt(), computer.getStrikeCnt());
             inputView.printInputMessage();
 
             strikeCnt = computer.getStrikeCnt();
@@ -89,7 +90,7 @@ public class GameService {
         }
     }
 
-    private int[] parsedUserInputValue() {
+    private int[] getUserInputValue() {
         String userInputValue = scanner.nextLine();
         validator.validInputValue(userInputValue);
 

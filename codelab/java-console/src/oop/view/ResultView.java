@@ -2,7 +2,7 @@ package oop.view;
 
 public class ResultView {
 
-    public void printCalculateMessage(int ballCnt, int strikeCnt) {
+    public void printCompareResultMessage(int ballCnt, int strikeCnt) {
         if (ballCnt == 0 && strikeCnt == 0) {
             System.out.println("낫싱");
         }
