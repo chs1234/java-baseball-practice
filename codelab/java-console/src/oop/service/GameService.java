@@ -40,25 +40,48 @@ public class GameService {
         askRetry();
     }
 
-    public void startGame() {
-        inputView.printInputMessage();
-        computer.createRandomNumbers();
+    private void startGame() {
+        clearStrikeAndBallCount();
+        createRandomNumbers();
+        printInputMessage();
         play();
     }
 
+    private void printInputMessage() {
+        inputView.printInputMessage();
+    }
+
+    private void createRandomNumbers() {
+        computer.createRandomNumbers();
+    }
+
+    private void clearStrikeAndBallCount() {
+        computer.clearStrikeAndBallCount();
+    }
+
     private void play() {
-        int strikeCnt = 0;
-        while (strikeCnt != 3) {
-            computer.clearCnt();
-            user.createNumbers(getUserInputValue());
-
+        while (isNotAllMatch()) {
+            clearStrikeAndBallCount();
+            createUserNumbersByInputValue();
             compareNumbersBetweenUserAndComputer();
-
-            resultView.printCompareResultMessage(computer.getBallCnt(), computer.getStrikeCnt());
-            inputView.printInputMessage();
-
-            strikeCnt = computer.getStrikeCnt();
+            printCompareResultMessage();
+            printInputMessage();
         }
+    }
+
+    private boolean isNotAllMatch() {
+        return computer.getStrikeCnt() != COMPARE_MAX_COUNT;
+    }
+
+    private void createUserNumbersByInputValue() {
+        user.createNumbers(getUserInputValue());
+    }
+
+    private int[] getUserInputValue() {
+        String userInputValue = scanner.nextLine();
+        validator.validInputValue(userInputValue);
+
+        return numberFormatParser.convertStringToIntArray(userInputValue);
     }
 
     private void compareNumbersBetweenUserAndComputer() {
@@ -90,11 +113,8 @@ public class GameService {
         }
     }
 
-    private int[] getUserInputValue() {
-        String userInputValue = scanner.nextLine();
-        validator.validInputValue(userInputValue);
-
-        return numberFormatParser.convertStringToIntArray(userInputValue);
+    private void printCompareResultMessage() {
+        resultView.printCompareResultMessage(computer.getBallCnt(), computer.getStrikeCnt());
     }
 
     private void endGame() {
