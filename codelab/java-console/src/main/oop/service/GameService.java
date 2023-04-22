@@ -13,6 +13,8 @@ public class GameService {
     private static final int COMPARE_MAX_COUNT = 3;
     private static final int RETRY = 1;
     private static final int END_GAME = 2;
+    private static final String RETRY_VALID_MESSAGE = "0 또는 1을 입력해주세요.";
+     
     private final User user;
     private final Computer computer;
     private final InputView inputView;
@@ -124,7 +126,7 @@ public class GameService {
     private int getRetryUserInputValue() {
         int retryUserInputValue = Integer.parseInt(scanner.nextLine());
         if (retryUserInputValue != RETRY && retryUserInputValue != END_GAME)
-            throw new IllegalArgumentException("0 또는 1을 입력해주세요.");
+            throw new IllegalArgumentException(RETRY_VALID_MESSAGE);
 
         return retryUserInputValue;
     }
