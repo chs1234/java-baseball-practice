@@ -1,10 +1,16 @@
-package oop.util;
+package main.oop.util;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class NumberFormatParser {
+
+    private final Validator validator;
+
+    public NumberFormatParser() {
+        this.validator = new Validator();
+    }
 
     public int[] convertStringToIntArray(String inputString) {
         int[] intArray = new int[3];
@@ -17,7 +23,9 @@ public class NumberFormatParser {
         return intArray;
     }
 
-    public List<Integer> convertStringToIntegerList(String inputString) {
+    private List<Integer> convertStringToIntegerList(String inputString) {
+        validator.validInputValue(inputString);
+
         return Arrays.stream(inputString.split(""))
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());

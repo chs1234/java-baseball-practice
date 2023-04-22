@@ -1,6 +1,6 @@
-package oop.domain;
+package main.oop.domain;
 
-import oop.util.RandomNumberGenerator;
+import main.oop.util.RandomNumberGenerator;
 
 public class Computer {
     private int ballCnt;

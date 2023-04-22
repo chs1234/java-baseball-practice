@@ -1,6 +1,6 @@
-package oop;
+package main.oop;
 
-import oop.service.GameService;
+import main.oop.service.GameService;
 
 public class Application {
 

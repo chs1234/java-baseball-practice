@@ -1,4 +1,4 @@
-package oop.domain;
+package main.oop.domain;
 
 public class User {
     private int[] userInputNumbers;

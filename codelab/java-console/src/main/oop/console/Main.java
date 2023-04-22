@@ -1,4 +1,4 @@
-package console;
+package main.oop.console;
 
 import java.util.*;
 import java.util.stream.Collectors;

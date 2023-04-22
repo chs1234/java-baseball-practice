@@ -1,4 +1,4 @@
-package oop.view;
+package main.oop.view;
 
 public class InputView {
 

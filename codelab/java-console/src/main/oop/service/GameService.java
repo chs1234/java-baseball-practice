@@ -1,11 +1,10 @@
-package oop.service;
+package main.oop.service;
 
-import oop.domain.Computer;
-import oop.domain.User;
-import oop.util.NumberFormatParser;
-import oop.util.Validator;
-import oop.view.InputView;
-import oop.view.ResultView;
+import main.oop.domain.Computer;
+import main.oop.domain.User;
+import main.oop.util.NumberFormatParser;
+import main.oop.view.InputView;
+import main.oop.view.ResultView;
 
 import java.util.Scanner;
 
@@ -19,12 +18,10 @@ public class GameService {
     private final InputView inputView;
     private final ResultView resultView;
     private final Scanner scanner;
-    private final Validator validator;
     private final NumberFormatParser numberFormatParser;
 
     public GameService() {
         this.scanner = new Scanner(System.in);
-        this.validator = new Validator();
         this.numberFormatParser = new NumberFormatParser();
 
         this.user = new User();
@@ -78,10 +75,7 @@ public class GameService {
     }
 
     private int[] getUserInputValue() {
-        String userInputValue = scanner.nextLine();
-        validator.validInputValue(userInputValue);
-
-        return numberFormatParser.convertStringToIntArray(userInputValue);
+        return numberFormatParser.convertStringToIntArray(scanner.nextLine());
     }
 
     private void compareNumbersBetweenUserAndComputer() {
