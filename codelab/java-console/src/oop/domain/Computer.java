@@ -6,14 +6,19 @@ public class Computer {
     private int ballCnt;
     private int strikeCnt;
     private int[] randomNumbers;
+    private final RandomNumberGenerator randomNumberGenerator;
 
-    public void clearCnt() {
-        ballCnt = 0;
-        strikeCnt = 0;
+    public Computer() {
+        this.randomNumberGenerator = new RandomNumberGenerator();
+    }
+
+    public void clearStrikeAndBallCount() {
+        this.ballCnt = 0;
+        this.strikeCnt = 0;
     }
 
     public void createRandomNumbers() {
-        randomNumbers = new RandomNumberGenerator().createRandomNumbers();
+        this.randomNumbers = randomNumberGenerator.createRandomNumbers();
     }
 
     public int getBallCnt() {
