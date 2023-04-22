@@ -16,7 +16,6 @@ public class RandomNumberGenerator {
         randomNumbers[1] = integerList.get(1);
         randomNumbers[2] = integerList.get(2);
 
-        System.out.println("createRandomNumbers = " + randomNumbers[0] + randomNumbers[1] + randomNumbers[2]);
         return randomNumbers;
     }
 }

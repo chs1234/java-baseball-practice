@@ -92,7 +92,6 @@ public class GameService {
     private int[] parsedUserInputValue() {
         String userInputValue = scanner.nextLine();
         validator.validInputValue(userInputValue);
-//        System.out.println("userInputValue = " + userInputValue);
 
         return numberFormatParser.convertStringToIntArray(userInputValue);
     }
