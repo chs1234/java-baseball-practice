@@ -1,6 +1,5 @@
 package main.oop.service;
 
-import main.oop.constants.GameRuleConstants;
 import main.oop.domain.Computer;
 import main.oop.domain.User;
 import main.oop.util.GameParser;
